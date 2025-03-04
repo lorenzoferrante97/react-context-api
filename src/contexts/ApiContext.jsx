@@ -34,11 +34,37 @@ const ApiProvider = ({ children }) => {
       });
   };
 
+  // next & prev ids
+  const getPrevNextIds = id => {
+    let numberOfPosts = postsList.length;
+    let nextPostId = 0;
+    let prevPostId = 0;
+
+    let intId = parseInt(id);
+
+    if (intId === 1) {
+      prevPostId = 0;
+      nextPostId = intId + 1;
+    } else if (intId === numberOfPosts) {
+      prevPostId = intId - 1;
+      nextPostId = 0;
+    } else {
+      prevPostId = intId - 1;
+      nextPostId = intId + 1;
+    }
+
+    return {
+      prev: prevPostId,
+      next: nextPostId
+    };
+  };
+
   const value = {
     postsList,
     post,
     getPosts,
-    getPost
+    getPost,
+    getPrevNextIds
   };
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;

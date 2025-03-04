@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useApiContext } from "../contexts/ApiContext";
 
 export default function Post() {
   // const [post, setPost] = useState({
@@ -9,30 +10,12 @@ export default function Post() {
   //   image: "",
   //   tags: []
   // });
-  const { id } = useParams();
-  const [numberOfPosts, setNumberOfPosts] = useState(0);
-  let nextPostId = 0;
-  let prevPostId = 0;
-
-  let intId = parseInt(id);
-
-  if (intId === 1) {
-    prevPostId = 0;
-    nextPostId = intId + 1;
-  } else if (intId === numberOfPosts) {
-    prevPostId = intId - 1;
-    nextPostId = 0;
-  } else {
-    prevPostId = intId - 1;
-    nextPostId = intId + 1;
-  }
+  // const { id } = useParams();
 
   const { title, content, image, tags } = post;
   const navigate = useNavigate();
 
   const handlePrevClick = prevId => {
-    console.log("prevId: ", prevId);
-    console.log("numberOfPosts: ", numberOfPosts);
     prevId === 0
       ? navigate(`/posts/${numberOfPosts}`)
       : navigate(`/posts/${prevId}`);
