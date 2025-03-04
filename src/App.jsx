@@ -7,6 +7,8 @@ import Homepage from "./pages/Homepage";
 import AboutUs from "./pages/AboutUs";
 import Posts from "./pages/Posts";
 import Post from "./pages/Post";
+// import provider
+import { ApiProvider } from "./contexts/ApiContext";
 
 function App() {
   return (
