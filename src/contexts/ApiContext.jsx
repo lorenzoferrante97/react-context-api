@@ -54,6 +54,7 @@ const ApiProvider = ({ children }) => {
     }
 
     return {
+      totalPosts: numberOfPosts,
       prev: prevPostId,
       next: nextPostId
     };

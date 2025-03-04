@@ -18,15 +18,18 @@ export default function Post() {
   const { title, content, image, tags } = post;
   const navigate = useNavigate();
 
-  const handlePrevClick = prevId => {
-    prevId === 0
-      ? navigate(`/posts/${numberOfPosts}`)
-      : navigate(`/posts/${prevId}`);
+  const { id } = useParams();
+
+  // uso funzione get post ids
+  const IdsInfo = getPrevNextIds(id);
+  // destructuring Idsinfo
+  const { totalPosts, prev, next } = IdsInfo;
+
+  const handlePrevClick = prev => {
+    prev === 0 ? navigate(`/posts/${totalPosts}`) : navigate(`/posts/${prev}`);
   };
-  const handleNextClick = nextId => {
-    console.log("nextId: ", nextId);
-    console.log("numberOfPosts: ", numberOfPosts);
-    nextId === 0 ? navigate(`/posts/1`) : navigate(`/posts/${nextId}`);
+  const handleNextClick = next => {
+    next === 0 ? navigate(`/posts/1`) : navigate(`/posts/${next}`);
   };
 
   // useEffect(() => {
@@ -39,15 +42,19 @@ export default function Post() {
   // });
 
   useEffect(() => {
-    fetch("http://localhost:3000/posts")
-      .then(response => response.json())
-      .then(data => {
-        setNumberOfPosts(data.length);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, [post]);
+    getPost(id);
+  });
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/posts")
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setNumberOfPosts(data.length);
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // }, [post]);
 
   return (
     <main className='container-fluid bg-smoke-50 mt-10u rounded-xl'>
@@ -73,12 +80,12 @@ export default function Post() {
           <div className='flex w-full items-center justify-between'>
             <button
               className='px-7u py-2u hover:bg-amethyst-600 w-fit rounded-full bg-black text-white transition-all hover:cursor-pointer'
-              onClick={() => handlePrevClick(prevPostId)}>
+              onClick={() => handlePrevClick(prev)}>
               Post precedente
             </button>
             <button
               className='px-7u py-2u hover:bg-amethyst-600 w-fit rounded-full bg-black text-white transition-all hover:cursor-pointer'
-              onClick={() => handleNextClick(nextPostId)}>
+              onClick={() => handleNextClick(next)}>
               Post successivo
             </button>
           </div>
