@@ -12,3 +12,6 @@ const ApiProvider = ({ children }) => {
 
 // custom hook
 const useApiContext = () => useContext(ApiContext);
+
+// export provider + hook
+export { ApiProvider, useApiContext };
