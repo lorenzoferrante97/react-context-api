@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useApiContext } from "../contexts/ApiContext";
 
 export default function Posts() {
   // const [postsList, setPostsList] = useState([]);
