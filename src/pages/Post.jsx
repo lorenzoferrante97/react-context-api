@@ -12,6 +12,9 @@ export default function Post() {
   // });
   // const { id } = useParams();
 
+  // destructuring hook
+  const { post, getPost, getPrevNextIds } = useApiContext();
+
   const { title, content, image, tags } = post;
   const navigate = useNavigate();
 
