@@ -14,6 +14,14 @@ export default function Posts() {
   //     });
   // });
 
+  // destructuring hook
+  const { postsList, getPosts } = useApiContext();
+
+  // uso hook
+  useEffect(() => {
+    getPosts();
+  });
+
   return (
     <main className='container-fluid bg-smoke-50 mt-10u rounded-xl'>
       <section className='row-grid gap-x-5u gap-y-10u px-3u py-7u xl:px-7u'>
