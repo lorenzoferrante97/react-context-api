@@ -34,7 +34,12 @@ const ApiProvider = ({ children }) => {
       });
   };
 
-  const value = {};
+  const value = {
+    postsList,
+    post,
+    getPosts,
+    getPost
+  };
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;
 };
