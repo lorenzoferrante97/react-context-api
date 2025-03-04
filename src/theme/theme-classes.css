@@ -1,0 +1,157 @@
+@import "./theme-variables.css";
+
+@layer components {
+  /* ANCHOR FONTS */
+
+  /* --- Display */
+
+  .font-display-1 {
+    @apply xl:text-10xl font-custom leading-default text-8xl font-medium md:text-9xl;
+  }
+  .font-display-2 {
+    @apply font-custom leading-default text-7xl font-medium md:text-8xl xl:text-9xl;
+  }
+  .font-display-3 {
+    @apply font-custom leading-default text-6xl font-medium md:text-7xl xl:text-8xl;
+  }
+
+  /* --- Headings */
+
+  .font-h1 {
+    @apply font-custom leading-default text-5xl font-bold md:text-6xl xl:text-7xl;
+  }
+  .font-h2 {
+    @apply font-custom text-4xl leading-normal font-bold md:text-5xl xl:text-6xl;
+  }
+  .font-h3 {
+    @apply font-custom text-2xl leading-normal font-semibold md:text-3xl xl:text-4xl;
+  }
+  .font-h4 {
+    @apply font-custom text-xl leading-normal font-semibold md:text-2xl xl:text-3xl;
+  }
+  .font-h5 {
+    @apply font-custom text-lg leading-normal font-semibold md:text-xl xl:text-2xl;
+  }
+  .font-h6 {
+    @apply font-custom text-lg leading-normal font-normal xl:text-xl;
+  }
+
+  /* --- Body */
+
+  /* l */
+
+  .font-body-l-light {
+    @apply font-custom text-xl leading-loose font-light tracking-normal;
+  }
+  .font-body-l-regular {
+    @apply font-custom text-xl leading-loose font-normal tracking-normal;
+  }
+  .font-body-l-bold {
+    @apply font-custom text-xl leading-loose font-bold tracking-wide;
+  }
+
+  /* m */
+
+  .font-body-m-light {
+    @apply font-custom text-lg leading-loose font-light tracking-normal;
+  }
+  .font-body-m-regular {
+    @apply font-custom text-lg leading-loose font-normal tracking-normal;
+  }
+  .font-body-m-bold {
+    @apply font-custom text-lg leading-loose font-bold tracking-wide;
+  }
+
+  /* base */
+
+  .font-body-base-light {
+    @apply font-custom text-base leading-loose font-light tracking-normal;
+  }
+  .font-body-base-regular {
+    @apply font-custom text-base leading-loose font-normal tracking-normal;
+  }
+  .font-body-base-bold {
+    @apply font-custom text-base leading-loose font-semibold tracking-wide;
+  }
+
+  /* s */
+
+  .font-body-s-light {
+    @apply font-custom text-sm leading-loose font-light tracking-normal;
+  }
+  .font-body-s-regular {
+    @apply font-custom text-sm leading-loose font-normal tracking-normal;
+  }
+  .font-body-s-bold {
+    @apply font-custom text-sm leading-loose font-semibold tracking-wide;
+  }
+
+  /* ANCHOR CONTAINERS */
+
+  /* wrapper -> primo container del sito */
+  .wrapper {
+    @apply relative flex w-full flex-col;
+  }
+
+  /* container full -> sempre al 100% */
+  .container-full {
+    @apply flex w-full flex-col;
+  }
+
+  /* container fluid -> 100% massimo 1200px */
+  .container-fluid {
+    @apply max-sm:px-4u sm:max-lg:px-5u lg:max-xl:px-7u flex w-full max-w-[1200px] flex-col self-center;
+  }
+
+  /* container overlay -> overlay fullscreen */
+  .container-overlay {
+    @apply fixed top-0 left-0 z-50 flex h-full w-full flex-col items-center justify-center;
+  }
+
+  /* container overlay default */
+  .container-overlay-default {
+    @apply fixed top-0 left-0 z-50 flex h-full w-full flex-col items-center justify-center bg-black/80 backdrop-blur-sm;
+  }
+
+  /* ANCHOR ROW & COLS */
+
+  /* ANCHOR --- rows */
+
+  /* row flex */
+  .row-flex {
+    @apply px-4u sm:px-5u lg:px-7u xl:px-10u gap-2u sm:gap-3u md:gap-4u xl:gap-5u flex w-full flex-col md:flex-row;
+  }
+  /* row flex wrap */
+  .row-flex-wrap {
+    @apply px-4u sm:px-5u lg:px-7u xl:px-10u gap-2u sm:gap-3u md:gap-4u xl:gap-5u flex w-full flex-col flex-wrap md:flex-row;
+  }
+
+  /* row grid */
+  .row-grid {
+    @apply gap-2u sm:gap-3u md:gap-4u xl:gap-5u grid w-full grid-cols-4 md:grid-cols-8 xl:grid-cols-12;
+  }
+
+  /* ANCHOR --- cols */
+
+  /* ( max-lg -> full ) ( lg -> half ) */
+  .col-grid-full-half {
+    @apply max-lg:col-span-full lg:col-span-4 xl:col-span-6;
+  }
+
+  /* ( max-lg -> full ) ( lg -> half ) ( xl -> third ) */
+  .col-grid-full-third {
+    @apply max-lg:col-span-full lg:col-span-4;
+  }
+
+  /* ( max-lg -> full ) ( lg -> quarter ) */
+  .col-grid-full-quarter {
+    @apply max-lg:col-span-full lg:col-span-2 xl:col-span-3;
+  }
+
+  /* ANCHOR FLEX RULES */
+
+  /* --- Perfect center */
+  .perfect-center {
+    @apply items-center justify-center;
+  }
+}
