@@ -1,9 +1,14 @@
 import { createContext, useState, useContext } from "react";
 
-const apiContext = createContext();
+// create context
+const ApiContext = createContext();
 
-const apiProvider = ({ children }) => {
+// create provider
+const ApiProvider = ({ children }) => {
   const value = {};
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;
 };
+
+// custom hook
+const useApiContext = () => useContext(ApiContext);
